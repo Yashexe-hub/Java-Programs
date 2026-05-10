@@ -1,0 +1,47 @@
+import java.util.*;
+
+class DivisionExceptionFinally
+{
+    public static void main(String A[])
+    {
+        Scanner sobj = new Scanner(System.in);
+
+        int no1 = 0 , no2 = 0 , Ans = 0;
+
+        System.out.println("Enter first no : ");
+        no1 = sobj.nextInt();
+
+        System.out.println("Enter second no : ");
+        no2 = sobj.nextInt();
+
+        try
+        {
+            System.out.println("Inside Try block");
+            Ans = no1 / no2;
+
+        }
+
+        catch(ArithmeticException aobj)
+        {
+            System.out.println("Inside catch block");
+            System.out.println("Exception occured : "+aobj);
+
+        }
+        catch(Exception eobj)
+        {
+            System.out.println("Inside generic catch "+eobj);
+        }
+
+        finally
+        {
+            System.out.println("Inside finally block");
+
+            sobj = null;            //Resource deallocation
+            System.gc();
+        }
+       
+
+        System.out.println("Division is :"+Ans);
+
+    }
+}
